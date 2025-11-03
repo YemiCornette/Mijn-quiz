@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="Kahoot.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  </head>
+  <body>
+
+    <h2>Welkom bij de Quiz!</h2>
+
+    <div id="vraag1">
+      <p>Vraag 1: Wat is 1 + 1?</p>
+      <button onclick="goedAntwoord(); document.getElementById('feedback1').innerHTML='Correct!'; document.getElementById('next1').style.display='block'">
+      2
+      </button>
+      <button onclick="document.getElementById('feedback1').innerHTML='Fout!'">70</button>
+      <p id="feedback1"></p>
+      <button id="next1" style="display:none;" onclick="document.getElementById('vraag1').style.display='none'; document.getElementById('vraag2').style.display='block';">
+      Volgende vraag
+      </button>
+    </div>
+
+    <div id="vraag2" style="display:none;">
+      <p>Vraag 2: Hoeveel dagen <br> zitten er in een week?</p>
+      <button onclick="goedAntwoord(); document.getElementById('feedback2').innerHTML='Correct!'; document.getElementById('next2').style.display='block'">
+      7
+      </button>
+      <button onclick="document.getElementById('feedback2').innerHTML='Fout!'">10</button>
+      <p id="feedback2"></p>
+      <button id="next2" style="display:none;" onclick="document.getElementById('vraag2').style.display='none'; document.getElementById('vraag3').style.display='block';">Volgende vraag</button>
+    </div>
+
+    <div id="vraag3" style="display:none;">
+      <p>Vraag 3: Wat is de hoofdstad <br> van Frankrijk?</p>
+      <button onclick="goedAntwoord(); document.getElementById('feedback3').innerHTML='Correct!'; toonScore(); document.getElementById('einde').style.display='block'">
+      Parijs
+      </button>
+      <button onclick="document.getElementById('feedback3').innerHTML='Fout!'; toonScore(); document.getElementById('einde').style.display='block'">Londen</button>
+      
+      <p id="feedback3"></p>
+      <p id="einde" style="display:none; font-weight:bold;"></p>
+    </div>
+
+    <script>
+      let score = 0;
+      let totaal = 3;
+
+      function goedAntwoord() {
+        score++;
+      }
+
+      function toonScore() {
+        document.getElementById('einde').innerHTML = 
+          "Einde van de quiz! Goed gedaan! <br> Je totale score is: " + score + "/" + totaal + " punten.";
+      }
+    </script>
+
+  </body>
+</html>
